@@ -1,0 +1,37 @@
+<?php
+
+/**
+ * @file
+ * Contains farm_asset_area.module.
+ */
+
+use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\entity\BundleFieldDefinition;
+
+/**
+ * Implements hook_farm_entity_bundle_field_info().
+ */
+function farm_asset_area_farm_entity_bundle_field_info(EntityTypeInterface $entity_type, string $bundle) {
+  $fields = [];
+
+  // Add an intrinsic_area field to assets.
+  if ($entity_type->id() == 'asset') {
+    $fields['intrinsic_area'] = BundleFieldDefinition::create('decimal')
+      ->setLabel(t('Total area'))
+      ->setCardinality(1)
+      ->setRequired(FALSE)
+      ->setSettings([
+        'precision' => 11,
+        'scale' => 4,
+      ])
+      ->setDisplayOptions('view', [
+        'label' => 'inline',
+        'type' => 'numeric_decimal'
+      ])
+      ->setDisplayOptions('form', [
+        'type' => 'numeric',
+      ]);
+  }
+
+  return $fields;
+}
