@@ -1,0 +1,11 @@
+{
+    "name": "vital-agronomics/farm_asset_area",
+    "description": "Allows a specific area to be saved on assets.",
+    "type": "drupal-module",
+    "authors": [
+        {
+            "name": "Paul Weidner",
+            "email": "paul.weidner@gmail.com"
+        }
+    ]
+}
