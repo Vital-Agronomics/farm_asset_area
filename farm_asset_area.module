@@ -29,7 +29,7 @@ function farm_asset_area_farm_entity_bundle_field_info(EntityTypeInterface $enti
         'type' => 'numeric_decimal'
       ])
       ->setDisplayOptions('form', [
-        'type' => 'numeric',
+        'type' => 'number',
       ]);
   }
 
