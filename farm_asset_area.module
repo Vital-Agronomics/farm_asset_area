@@ -28,9 +28,12 @@ function farm_asset_area_farm_entity_bundle_field_info(EntityTypeInterface $enti
         'label' => 'inline',
         'type' => 'number_decimal'
       ])
+      ->setDisplayConfigurable('view', TRUE)
       ->setDisplayOptions('form', [
         'type' => 'number',
-      ]);
+      ])
+      ->setDisplayConfigurable('form', TRUE);
+
   }
 
   return $fields;
