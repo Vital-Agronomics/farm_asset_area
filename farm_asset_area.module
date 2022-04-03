@@ -16,8 +16,16 @@ function farm_asset_area_farm_entity_bundle_field_info(EntityTypeInterface $enti
 
   // Add an intrinsic_area field to assets.
   if ($entity_type->id() == 'asset') {
+
+    // The label depends on the system of measurement.
+    $system_of_measurement = 'metric';
+    if ($quantity_config = \Drupal::config('quantity.settings')) {
+      $system_of_measurement = $quantity_config->get('system_of_measurement');
+    }
+    $label = $system_of_measurement == 'metric' ? t('Total hectares') : t('Total acres');
+
     $fields['intrinsic_area'] = BundleFieldDefinition::create('decimal')
-      ->setLabel(t('Total area'))
+      ->setLabel($label)
       ->setCardinality(1)
       ->setRequired(FALSE)
       ->setSettings([
