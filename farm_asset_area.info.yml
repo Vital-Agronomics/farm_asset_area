@@ -2,7 +2,7 @@ name: Farm asset area
 description: Allows a specific area to be saved on assets.
 type: module
 package: farmOS Contrib
-core_version_requirement: ^9
+core_version_requirement: ^9 || ^10
 dependencies:
   - asset
   - entity
